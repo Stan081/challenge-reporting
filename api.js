@@ -13,8 +13,8 @@ async function getHealth (req, res, next) {
   try {
     await knex('students').first()
     res.json({ success: true })
-  } catch (e) {
-    console.log(e)
+  } catch (error) {
+    console.log(error)
     res.status(500).end()
   }
 }

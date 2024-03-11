@@ -15,8 +15,8 @@ tape('health', async function (t) {
     }
     t.ok(data.success, 'should have successful healthcheck')
     t.end()
-  } catch (e) {
-    t.error(e)
+  } catch (error) {
+    t.error(error)
   }
 })
 
@@ -29,8 +29,8 @@ tape('Get student detail using their Id', async function (t) {
     t.ok(data, 'Student record gotten successfully')
     t.equal(data.studentDetails.id, 1, 'Returned Student has correct Id')
     t.end()
-  } catch (e) {
-    t.fail('Error getting student by Id: ' + e.message)
+  } catch (error) {
+    t.fail('Error getting student by Id: ' + error.message)
   }
 })
 
@@ -43,8 +43,8 @@ tape('Get student details and grade information as well from json resource', asy
     t.equal(data.studentDetails.id, 1, 'Returned Student has correct Id')
     t.ok(data.studentGrades, 'Contains grade information')
     t.end()
-  } catch (e) {
-    t.fail('Error getting to endpoint: ' + e.message)
+  } catch (error) {
+    t.fail('Error getting to endpoint: ' + error.message)
   }
 })
 
@@ -57,9 +57,9 @@ tape('Get a summary for all the courses including the highest, lowest and averag
     t.ok(data.courseGradesReport.Calculus.lowestGrade >= 0, 'Lowest grade should not be below 0')
     t.ok(data.courseGradesReport.Calculus.averageGrade >= 0 && data.courseGradesReport.Calculus.averageGrade <= 100, 'Average grade should not be below 0 or above 100')
     t.end()
-  } catch (e) {
-    console.error('Error:', e.message)
-    t.fail(e.message)
+  } catch (error) {
+    console.error('Error:', error.message)
+    t.fail(error.message)
   }
 })
 
